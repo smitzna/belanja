@@ -1,0 +1,80 @@
+<!-- <span class="fa-stack">
+    <i class="fa fa-bar-chart fa-stack-1x"></i>
+</span>
+<span class="fa-stack">
+    <i class="fa fa-plus fa-stack-1x"></i>
+</span>
+<span class="fa-stack">
+    <i class="fa fa-list fa-stack-1x"></i>
+</span>
+<span class="fa-stack" *ngIf="showList">
+    <i class="fa fa-gear fa-stack-1x"></i>
+</span> -->
+<i
+  class="material-icons grow"
+  (click)="onClick('budget')"
+  [class.active]="showBudget"
+  >monetization_on</i
+>
+<i
+  class="material-icons grow"
+  (click)="onClick('edit')"
+  [class.active]="showEdit"
+  >edit</i
+>
+<i
+  class="material-icons grow"
+  (click)="onClick('list')"
+  [class.active]="showList"
+  >list</i
+>
+<i *ngIf="showList" class="material-icons grow" [matMenuTriggerFor]="settings"
+  >settings</i
+>
+<mat-menu #settings>
+  <button mat-menu-item [matMenuTriggerFor]="show">Show</button>
+  <button mat-menu-item [matMenuTriggerFor]="sort">Sort</button>
+</mat-menu>
+<mat-menu #show>
+  <a (click)="$event.stopPropagation()">
+    <div class="menu">
+      <mat-checkbox class="checkBox" [formControl]="showBoughtControl"
+        >Bought</mat-checkbox
+      >
+      <mat-checkbox class="checkBox" [formControl]="showPlannedControl"
+        >Planned</mat-checkbox
+      >
+      <mat-checkbox class="checkBox" [formControl]="showDeletedControl"
+        >Deleted</mat-checkbox
+      >
+    </div>
+  </a>
+</mat-menu>
+<mat-menu #sort>
+  <a (click)="$event.stopPropagation()">
+    <mat-radio-group class="radio-group" [formControl]="sortByControl">
+      <mat-radio-button class="radio-button" value="Time"
+        >Time</mat-radio-button
+      >
+      <mat-radio-button class="radio-button" value="Status"
+        >Status</mat-radio-button
+      >
+      <mat-radio-button class="radio-button" value="Price"
+        >Price</mat-radio-button
+      >
+      <mat-radio-button class="radio-button" value="Name"
+        >Name</mat-radio-button
+      >
+    </mat-radio-group>
+    <mat-checkbox class="checkBox" [formControl]="sortReverseControl"
+      >Reverse</mat-checkbox
+    >
+  </a>
+</mat-menu>
+<i *ngIf="showList" class="material-icons grow">save</i>
+<i *ngIf="showList" class="material-icons grow">cloud_upload</i>
+<!-- <input type="text" [value]="sortByControl.value" />
+<mat-checkbox [checked]="sortReverseControl.value">Reverse</mat-checkbox>
+<mat-checkbox [checked]="showBoughtControl.value">Reverse</mat-checkbox>
+<mat-checkbox [checked]="showPlannedControl.value">Reverse</mat-checkbox>
+<mat-checkbox [checked]="showDeletedControl.value">Reverse</mat-checkbox> -->

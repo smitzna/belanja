@@ -1,0 +1,24 @@
+.pageTitle {
+  flex-grow: 1;
+  text-align: left;
+}
+.active {
+  background-color: blue;
+  color: rgb(255, 136, 0);
+}
+
+button {
+  font-size: 16px;
+}
+
+.radio-group,
+.menu {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.radio-button,
+.checkBox {
+  padding: 5px;
+  font-size: 16px;
+}
